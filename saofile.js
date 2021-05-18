@@ -1,67 +1,40 @@
-function transformPropsString(props) {
-  objectify = (prop) => {
-    const description = prop.match(/\((.*)\)$/);
-    let vals = prop.replace(/\(.*\)$/, '').split(':');
-
-    return {
-      name: vals[0],
-      type: vals[1],
-      description: !!description ? description[1] : 'No description'
-    };
-  };
-
-  if (!props) {
-    return;
-  }
-
-  return props
-    .split(';')
-    .map((propString) => propString.trim())
-    .map(objectify);
-}
-
 module.exports = {
   prompts: [
     {
       name: 'name',
-      message: `Component name:`
+      message: `Library name:`,
     },
     {
       name: 'packageName',
-      message: `Package name:`
+      message: `Package name:`,
     },
     {
       name: 'title',
-      message: 'Human friendly title:'
+      message: 'Human friendly title:',
     },
     {
       name: 'description',
-      message: 'Describe it:'
+      message: 'Describe it:',
     },
     {
       name: 'author',
-      message: 'Author:'
+      message: 'Author:',
     },
     {
       name: 'githubOrg',
-      message: 'GitHub org:'
+      message: 'GitHub org:',
     },
-    {
-      name: 'props',
-      message: 'Props :: [prop]:[type](description);',
-      filter: transformPropsString
-    }
   ],
   actions: [
     {
       type: 'add',
-      files: '**'
-    }
+      files: '**',
+    },
   ],
 
   async completed() {
     this.gitInit();
     await this.npmInstall();
     this.showProjectTips();
-  }
+  },
 };
