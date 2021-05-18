@@ -7,8 +7,8 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/<% name %>.umd.js",
-  "module": "./dist/<% name %>.es.js",
+  "main": "./dist/<%= name %>.umd.js",
+  "module": "./dist/<%= name %>.es.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "develop": "vite",
@@ -17,17 +17,17 @@
   },
   "exports": {
     ".": {
-      "import": "./dist/<% name %>.es.js",
-      "require": "./dist/<% name %>.umd.js"
+      "import": "./dist/<%= name %>.es.js",
+      "require": "./dist/<%= name %>.umd.js"
     }
   },
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/<% githubOrg %>/<% packageName %>"
+    "url": "https://github.com/<%= githubOrg %>/<%= packageName %>"
   },
   "bugs": {
-    "url": "https://github.com/<% githubOrg %>/<% packageName %>/issues"
+    "url": "https://github.com/<%= githubOrg %>/<%= packageName %>/issues"
   },
   "devDependencies": {
     "prettier": "^2.3.0",
