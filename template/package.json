@@ -11,8 +11,8 @@
   "module": "./dist/<%= name %>.es.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "develop": "vite",
-    "build": "vite build && tsc",
+    "develop": "rollup -cw",
+    "build": "rollup -c",
     "prepublishOnly": "yarn build"
   },
   "exports": {
@@ -30,8 +30,12 @@
     "url": "https://github.com/<%= githubOrg %>/<%= packageName %>/issues"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@rollup/plugin-typescript": "^8.2.1",
     "prettier": "^2.3.0",
-    "typescript": "^4.2.3",
-    "vite": "^2.3.3"
+    "rollup": "^2.48.0",
+    "tslib": "^2.2.0",
+    "typescript": "^4.2.3"
   }
 }
